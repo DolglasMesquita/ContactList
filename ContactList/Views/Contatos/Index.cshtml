@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ContactList.Models.Contato>
+
+@{
+    ViewData["Title"] = "Contatos";
+}
+
+<h1> @ViewData["Title"] </h1>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-info text-primary"></i> </a> |
+                <a asp-action="Edit" asp-route-id="@item.Id"> <i class="fas fa-edit text-secondary"></i> </a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"> <i class="fas fa-trash text-danger"></i> </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark"> Adicionar contato </a>
+</p>

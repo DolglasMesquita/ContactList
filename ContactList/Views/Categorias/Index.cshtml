@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ContactList.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1> @ViewData["Title"] </h1>
+
+<table class="table table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaNome)
+            </td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.Id"> <i class="fas fa-edit text-secondary"> </i> </a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"> <i class="fas fa-trash text-danger"> </i> </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark"> Adicionar categoria </a>
+</p>

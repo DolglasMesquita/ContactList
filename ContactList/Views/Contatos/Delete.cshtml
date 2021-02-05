@@ -1,0 +1,40 @@
+﻿@model ContactList.Models.Contato
+
+@{
+    ViewData["Title"] = "Deletar contato";
+}
+
+<h1> @ViewData["Title"] </h1>
+
+<p class="lead">
+    Tem certeza de que deseja excluir o contato? 
+</p>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Apagar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-secondary btn-sm"> voltar </a>
+    </form>
+</div>
