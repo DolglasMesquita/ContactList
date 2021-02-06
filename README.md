@@ -1,6 +1,8 @@
-<h1> Contact List </h1>
-<p> Desenvolvido para praticar os conhecimentos em .NET Core MVC com C# </p>
----
+<div>
+    <h1> Contact List </h1>
+    <p> Desenvolvido para praticar os conhecimentos em .NET Core MVC com C# </p>
+</div>
+
 
 <p>
     Contact List é um sistema simples de gerenciamento de contatos. <br>
