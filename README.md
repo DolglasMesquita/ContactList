@@ -1,6 +1,5 @@
-Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
-
 # Contact List
+### Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
 
 <img src="ContactList/wwwroot/images/print.jpg">
 
