@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<ContactList.Models.Contato>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
 <div class="border-bottom mb-3">
     <ul class="nav justify-content-center">
         @foreach (var item in ViewBag.Categorias)
@@ -15,7 +11,7 @@
     </ul>
 </div>
 
-<h1> Todos os contatos </h1>
+<h1> @ViewData["title"] </h1>
 
 <p class="float-right">
     <a asp-action="Create" class="btn btn-dark"> Novo contato </a>
@@ -36,7 +32,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
@@ -53,6 +50,6 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

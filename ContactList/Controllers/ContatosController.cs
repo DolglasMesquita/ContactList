@@ -7,26 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContactList.Data;
 using ContactList.Models;
-using ContactList.Services;
-using ContactList.Models.ViewModels;
 
 namespace ContactList.Controllers
 {
     public class ContatosController : Controller
     {
         private readonly ContactListContext _context;
-        private readonly CategoriaService _categoriaService;
 
-        public ContatosController(ContactListContext context, CategoriaService categoriaService)
+        public ContatosController(ContactListContext context)
         {
             _context = context;
-            _categoriaService = categoriaService;
         }
 
         // GET: Contatos
         public async Task<IActionResult> Index()
         {
-            var contactListContext = _context.Contato.Include(c => c.Categoria).OrderBy(c => c.Nome);
+            ViewBag.Categorias = _context.Categorias.ToList();
+
+            var contactListContext = _context.Contato.Include(c => c.Categoria);
             return View(await contactListContext.ToListAsync());
         }
 
@@ -52,9 +50,8 @@ namespace ContactList.Controllers
         // GET: Contatos/Create
         public IActionResult Create()
         {
-            var categorias = _categoriaService.FindAll();
-            var viewModel = new ContatosFormViewModel { Categorias = categorias };
-            return View(viewModel);
+            ViewData["Categoria"] = new SelectList(_context.Categorias, "Id", "CategoriaNome");
+            return View();
         }
 
         // POST: Contatos/Create
@@ -87,9 +84,8 @@ namespace ContactList.Controllers
             {
                 return NotFound();
             }
-            var categorias = _categoriaService.FindAll();
-            var viewModel = new ContatosFormViewModel { Contato = contato , Categorias = categorias };
-            return View(viewModel);
+            ViewData["Categoria"] = new SelectList(_context.Categorias, "Id", "CategoriaNome", contato.CategoriaId);
+            return View(contato);
         }
 
         // POST: Contatos/Edit/5
@@ -124,7 +120,7 @@ namespace ContactList.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Id", contato.CategoriaId);
+            ViewData["Categoria"] = new SelectList(_context.Categorias, "Id", "CategoriaNome", contato.CategoriaId);
             return View(contato);
         }
 
@@ -158,9 +154,22 @@ namespace ContactList.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> BuscaCategoria(int idCategoria)
+        {
+            ViewBag.Categorias = _context.Categorias.ToList();
+            var categoriaAltual = _context.Categorias.FirstOrDefault(c => c.Id == idCategoria);
+            ViewData["title"] = categoriaAltual.CategoriaNome;
+            var result = await _context.Contato.Include(c => c.Categoria).Where(c => c.CategoriaId == idCategoria)
+                                               .OrderBy(o => o.Nome).ToListAsync();
+
+            return View(result);
+        }
+
         private bool ContatoExists(int id)
         {
             return _context.Contato.Any(e => e.Id == id);
         }
+
+
     }
 }
