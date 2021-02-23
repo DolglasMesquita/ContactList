@@ -2,6 +2,8 @@ Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
 
 # Contact List
 
+<img src="~/ContactList/wwwroot/images/print-index.png">
+
 * Contact List é um sistema simples de gerenciamento de contatos.
 * Possui as funcionalidades de adicionar, editar e remover categorias e contatos.
 * É possivel listar todos os contatos e listar os contatos filtrando por categoria.
