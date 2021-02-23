@@ -24,7 +24,7 @@ namespace ContactList.Controllers
         {
             ViewBag.Categorias = _context.Categorias.ToList();
 
-            var contactListContext = _context.Contato.Include(c => c.Categoria);
+            var contactListContext = _context.Contato.Include(c => c.Categoria).OrderBy(o => o.Nome);
             return View(await contactListContext.ToListAsync());
         }
 

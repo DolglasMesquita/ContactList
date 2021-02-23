@@ -1,14 +1,26 @@
 ﻿@model IEnumerable<ContactList.Models.Contato>
 
 <div class="border-bottom mb-3">
-    <ul class="nav justify-content-center">
-        @foreach (var item in ViewBag.Categorias)
-        {
-            <li class="nav-item btn">
-                <a class="nav-link text-dark" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
-            </li>
-        }
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item btn">
+                    <a class="nav-link text-dark" asp-action="Index"> Todos </a>
+                </li>
+
+                @foreach (var item in ViewBag.Categorias)
+                {
+                    <li class="nav-item btn">
+                        <a class="nav-link text-dark" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
 </div>
 
 <h1> @ViewData["title"] </h1>
@@ -45,9 +57,9 @@
                 @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"> <i class="fas fa-info-circle"></i> </a> |
+                <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"> <i class="fas fa-edit text-info"></i> </a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" title="Ecluir"> <i class="far fa-trash-alt text-danger"></i> </a>
             </td>
         </tr>
         }
