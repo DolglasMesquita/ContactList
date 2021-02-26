@@ -14,5 +14,6 @@ namespace ContactList.Models
         [Required(ErrorMessage = "O nome da categoria não pode ser vazio")]
         public string CategoriaNome { get; set; }
         public IEnumerable<Contato> Contatos { get; set; }
+        public string UsuarioNome { get; set; }
     }
 }

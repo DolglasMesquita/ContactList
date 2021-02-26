@@ -12,16 +12,16 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item btn">
-                        <a class="nav-link text-dark" asp-action="Index"> Todos </a>
-                    </li>
+                <li class="nav-item btn">
+                    <a class="nav-link text-dark" asp-action="Index"> Todos </a>
+                </li>
 
-                    @foreach (var item in ViewBag.Categorias)
-                    {
-                        <li class="nav-item btn">
-                            <a class="nav-link text-dark" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
-                        </li>
-                    }
+                @foreach (var item in ViewBag.Categorias)
+                {
+                    <li class="nav-item btn">
+                        <a class="nav-link text-dark" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
+                    </li>
+                }
             </ul>
         </div>
     </nav>
@@ -48,23 +48,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"> <i class="fas fa-info-circle"></i> </a> |
-                <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"> <i class="fas fa-edit text-info"></i> </a> |
-                <a asp-action="Delete" asp-route-id="@item.Id" title="Ecluir"> <i class="far fa-trash-alt text-danger"></i> </a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"> <i class="fas fa-info-circle"></i> </a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"> <i class="fas fa-edit text-info"></i> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" title="Ecluir"> <i class="far fa-trash-alt text-danger"></i> </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (!Model.Any())
+{
+    <div class="text-center">
+        <div class="alert alert-warning" role="alert">
+            Nenhum contato cadastrado
+        </div>
+    </div>
+}

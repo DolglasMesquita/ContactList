@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContactList.Data;
 using ContactList.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContactList.Controllers
 {
@@ -22,23 +23,28 @@ namespace ContactList.Controllers
         // GET: Categorias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categorias.ToListAsync());
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+            return View(await _context.Categorias.Where(c => c.UsuarioNome == User.Identity.Name).ToListAsync());
         }
 
         // GET: Categorias/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var categoria = await _context.Categorias
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var categoria = await _context.Categorias.FirstOrDefaultAsync(m => m.Id == id);
             if (categoria == null)
             {
                 return NotFound();
             }
+
+            if (categoria.UsuarioNome != User.Identity.Name) return NotFound();
 
             return View(categoria);
         }
@@ -46,6 +52,7 @@ namespace ContactList.Controllers
         // GET: Categorias/Create
         public IActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
             return View();
         }
 
@@ -58,6 +65,7 @@ namespace ContactList.Controllers
         {
             if (ModelState.IsValid)
             {
+                categoria.UsuarioNome = User.Identity.Name;
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -68,6 +76,8 @@ namespace ContactList.Controllers
         // GET: Categorias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
             if (id == null)
             {
                 return NotFound();
@@ -78,6 +88,9 @@ namespace ContactList.Controllers
             {
                 return NotFound();
             }
+
+            if (categoria.UsuarioNome != User.Identity.Name) return NotFound();
+
             return View(categoria);
         }
 
@@ -119,6 +132,8 @@ namespace ContactList.Controllers
         // GET: Categorias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
             if (id == null)
             {
                 return NotFound();

@@ -20,7 +20,8 @@ namespace ContactList.Models
         [Display(Name ="Categoria")]
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
-        
+        public string UsuarioNome { get; set; }
+
 
     }
 }

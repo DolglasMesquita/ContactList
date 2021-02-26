@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["alerta"] != null)
+{
+<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+     @TempData["alerta"]
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1 class="display-4">
+        Bem-vindo <strong> @User.Identity.Name </strong>
+    </h1>
+}
+
+
+<div class="jumbotron mt-5">
+    <h1 class="display-4"> Contact List </h1>
+
+    <p class="lead"> Neste app você pode cadastrar seu contatos e associar eles a categorias cadastradas. </p>
+    <hr class="my-4">
+    <p> Cadastre algumas categorias e comece a organizar seus contatos.</p>
+    <a class="btn btn-dark btn-lg" role="button" asp-controller="Contatos"> Contatos </a>
+</div>

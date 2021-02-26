@@ -173,3 +173,11 @@ C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\ne
 C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Contatos\Edit.cshtml.g.cs
 C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Contatos\Index.cshtml.g.cs
 C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Contatos\BuscaCategoria.cshtml.g.cs
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Dolglas\Desktop\Visual Studio 2019\ContactList\ContactList\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
