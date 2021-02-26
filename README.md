@@ -1,8 +1,7 @@
-Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
-
 # Contact List
+### Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
 
-<img src="~/ContactList/wwwroot/images/print-index.png">
+<img src="ContactList/wwwroot/images/print.jpg">
 
 * Desenvolvindo com .NET Core MVC | C# | Entity Framework Core | Identity | SQLServer | Razor | HTML | Bootstrap
 * Contact List é um sistema simples de gerenciamento de contatos.
