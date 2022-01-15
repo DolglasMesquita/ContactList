@@ -4,36 +4,28 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="border-bottom mb-3">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<h1 class="text-white"> Todos os contatos </h1>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item btn">
-                    <a class="nav-link text-dark" asp-action="Index"> Todos </a>
-                </li>
-
-                @foreach (var item in ViewBag.Categorias)
-                {
-                    <li class="nav-item btn">
-                        <a class="nav-link text-dark" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
-                    </li>
-                }
-            </ul>
+<div class="float-left mt-4 order-category">
+    <li class="nav-item list-unstyled float-left mr-3" aria-current="page">
+        <a class="nav-link text-white" asp-action="Index"> Todos </a>
+    </li>
+    <li class="nav-item dropdown float-left list-unstyled mr-3">
+        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Outras Categorias</a>
+        <div class="dropdown-menu">
+            @foreach (var item in ViewBag.Categorias)
+            {
+                <a class="nav-link text-dark choosed-background" asp-action="BuscaCategoria" asp-route-idCategoria="@item.Id"> @item.CategoriaNome </a>
+            }
         </div>
-    </nav>
+    </li>
+    <p class="float-right justify-content-end">
+        <a asp-action="Create" class="btn btn-primary"> Novo contato </a>
+    </p>
 </div>
 
-<h1> Todos os contatos </h1>
-
-<p class="float-right">
-    <a asp-action="Create" class="btn btn-dark"> Novo contato </a>
-</p>
-<table class="table table-striped table-hover">
-    <thead class="thead-dark">
+<table class="table table-borderless table-striped table-light">
+    <thead class="table-color-custom">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
@@ -61,7 +53,6 @@
                     @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"> <i class="fas fa-info-circle"></i> </a> |
                     <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"> <i class="fas fa-edit text-info"></i> </a> |
                     <a asp-action="Delete" asp-route-id="@item.Id" title="Ecluir"> <i class="far fa-trash-alt text-danger"></i> </a>
                 </td>

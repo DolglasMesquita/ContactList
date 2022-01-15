@@ -7,13 +7,19 @@
     <title>@ViewData["Title"] - ContactList</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/CustomStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ContactList</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark nav-custom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo_ct.png" width="150" height="30" /></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -23,33 +29,21 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Contatos" asp-action="Index"> Contatos </a>
+                                    <a class="nav-link text-white main-nav-custom" asp-area="" asp-controller="Contatos" asp-action="Index"> Contatos </a>
                                 </li>
                                 <li class="nav-item pr-5">
-                                    <a class="nav-link" asp-area="" asp-controller="categorias" asp-action="Index"> categorias </a>
+                                    <a class="nav-link text-white main-nav-custom" asp-area="" asp-controller="categorias" asp-action="Index"> Categorias </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Account" asp-action="Logout"> Sair </a>
+                                    <a class="nav-link text-white main-nav-custom" asp-controller="Account" asp-action="Logout"> Sair </a>
                                 </li>
                             }
-
-                            @if (!User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register"> Cadastrar </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Account" asp-action="Login"> Entrar </a>
-                                </li>
-                            }
-
-
-
-
                         </ul>
                     </div>
-</div>
-        </nav>
+                </div>
+            </nav>
+        }
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -57,13 +51,14 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - ContactList - Dolglas Mesquita
+    <footer class="footer">
+        <div class="footer-margin d-flex border-top justify-content-center">
+            Copyright &copy; 2022 Horizon Company - Todos os direitos reservados
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
