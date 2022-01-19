@@ -1,8 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-.main-nav-custom:hover {
-    border-bottom:1px solid #F5F5F5;
+.main-nav-custom li a {
+    color: white !important;
+}
+
+.main-nav-custom li a:hover {
+    color: #D2D2D2 !important;
 }
 
 .nav-custom {
@@ -15,9 +19,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
     background-image:
-    /* top, transparent red */
     linear-gradient(50deg, rgba(113, 98, 217, 0.4), rgba(113, 98, 217, 0.4)),
-    /* your image */
     url(../images/ContactListBackground.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -36,8 +38,12 @@ body {
 .table-color-custom {
     background-color: #5C93E6;
 }
-.table-content-custom {
-    background-color: #5C93E6;
+
+.dd-custom {
+    background-color: #E5E5E5;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 table th {
@@ -50,6 +56,28 @@ table tr {
     color: black;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hr-white {
+    border-color: white;
+    background-color: white;
 }
 
 .btn-custom {

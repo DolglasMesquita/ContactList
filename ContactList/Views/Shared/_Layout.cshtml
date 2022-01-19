@@ -25,17 +25,17 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <ul class="navbar-nav main-nav-custom flex-grow-1 justify-content-end">
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-white main-nav-custom" asp-area="" asp-controller="Contatos" asp-action="Index"> Contatos </a>
+                                    <a class="nav-link" asp-area="" asp-controller="Contatos" asp-action="Index"> Contatos </a>
                                 </li>
                                 <li class="nav-item pr-5">
-                                    <a class="nav-link text-white main-nav-custom" asp-area="" asp-controller="categorias" asp-action="Index"> Categorias </a>
+                                    <a class="nav-link" asp-area="" asp-controller="categorias" asp-action="Index"> Categorias </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white main-nav-custom" asp-controller="Account" asp-action="Logout"> Sair </a>
+                                    <a class="nav-link" asp-controller="Account" asp-action="Logout"> Sair </a>
                                 </li>
                             }
                         </ul>
