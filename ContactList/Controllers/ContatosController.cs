@@ -110,7 +110,7 @@ namespace ContactList.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Telefone,CategoriaId")] Contato contato)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Telefone,CategoriaId,UsuarioNome")] Contato contato)
         {
             if (id != contato.Id)
             {

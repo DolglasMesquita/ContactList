@@ -99,7 +99,7 @@ namespace ContactList.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoriaNome")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoriaNome,UsuarioNome")] Categoria categoria)
         {
             if (id != categoria.Id)
             {
