@@ -1,28 +1,43 @@
 ﻿@model ContactList.Models.ViewModels.LoginViewModel
 
-<div class="login-page">
-    <div class="form">
-        <form class="login-form" asp-controller="Account" asp-action="Register" method="post" role="form">
-            <h3 class="pb-5"> Faça seu cadastro </h3>
-            <div class="form-group">
+@{
+    ViewData["title"] = "Register";
 
-                <div class="col-md-6">
-                    <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" class="form-control" />
-                </div>
+}
+
+<div class="container">
+    <div class="row d-flex justify-content-center center-login">
+        <div class="col-md-8 border-background">
+            <div class="row d-flex justify-content-center">
+                <a class="navbar-brand mb-4" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo_ct.png" width="30%" /></a>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" class="form-control" />
-                </div>
-            </div>
-            <span class="text-danger"> @Html.ValidationSummary() </span>
-
             <div>
-                <button type="submit" class="btn btn-dark ml-3"> Cadastrar </button>
+                <form class="login-form" asp-controller="Account" asp-action="Register" method="post" role="form">
+                    <h3 class="pb-3"> Faça seu cadastro </h3>
+                    <div class="form-group">
+
+                        <div>
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                        </div>
+                    </div>
+                    <span class="text-danger"> @Html.ValidationSummary() </span>
+
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-primary ml-3"> Cadastrar </button>
+                    </div>
+                    <div class="float-left mt-2">
+                        <span>Já possui uma conta? Faça o login clicando <a asp-controller="Account" asp-action="Login">aqui</a></span>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>

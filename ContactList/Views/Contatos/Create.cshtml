@@ -4,11 +4,11 @@
     ViewData["Title"] = "Adiconar";
 }
 
-<h1> Novo contato </h1>
+<h1 class="text-white"> Novo contato </h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<hr class="hr-white" />
+<div class="row dd-custom">
+    <div class="col-md-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -26,8 +26,8 @@
                 <select asp-for="CategoriaId" class ="form-control" asp-items="ViewBag.Categoria"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Adicionar" class="btn btn-dark" /> |
-                <a asp-action="Index"> Voltar </a>
+                <a class="btn btn-secondary" asp-action="Index"> <i class="fas fa-chevron-left"></i></a>
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
             </div>
         </form>
     </div>

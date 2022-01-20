@@ -5,77 +5,47 @@
 
 }
 
+@if (TempData["alerta"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show text-center mt-3" role="alert">
+        @TempData["alerta"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="container">
     <div class="row d-flex justify-content-center center-login">
-        <div class="col-md-8 ney ">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <a class="navbar-brand mb-4" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo_ct.png" width="30%" /></a>
-                </div>
+        <div class="col-md-8 border-background">
+            <div class="row d-flex justify-content-center">
+                <a class="navbar-brand mb-4" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo_ct.png" width="30%" /></a>
             </div>
-            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login"
-                       aria-selected="true">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab">Cadastro</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
+            <div>
+                <form class="login-form" asp-controller="Account" asp-action="Login" method="post" role="form">
+                    <h3 class="pb-3"> Login </h3>
+                    <div class="form-group">
 
-                <!-- Aba de Login -->
-
-                <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                    <form class="login-form" asp-controller="Account" asp-action="Login" method="post" role="form">
-                        <h3 class="pb-3"> Login </h3>
-                        <div class="form-group">
-
-                            <div class="">
-                                <label asp-for="UserName" class="control-label"></label>
-                                <input asp-for="UserName" class="form-control" />
-                            </div>
+                        <div>
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="">
-                                <label asp-for="Password" class="control-label"></label>
-                                <input asp-for="Password" class="form-control" />
-                            </div>
+                    <div class="form-group">
+                        <div>
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
                         </div>
-                        <span class="text-danger"> @Html.ValidationSummary() </span>
-                        <div class="float-right">
-                            <button type="submit" class="btn btn-primary btn-custom"> Entrar </button>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Aba de cadastro -->
-                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                    <form class="login-form" asp-controller="Account" asp-action="Register" method="post" role="form">
-                        <h3 class="pb-3"> Faça seu cadastro </h3>
-                        <div class="form-group">
-
-                            <div class="">
-                                <label asp-for="UserName" class="control-label"></label>
-                                <input asp-for="UserName" class="form-control" />
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="">
-                                <label asp-for="Password" class="control-label"></label>
-                                <input asp-for="Password" class="form-control" />
-                            </div>
-                        </div>
-                        <span class="text-danger"> @Html.ValidationSummary() </span>
-
-                        <div class="float-right">
-                            <button type="submit" class="btn btn-primary btn-custom"> Cadastrar </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    </div>
+                    <span class="text-danger"> @Html.ValidationSummary() </span>
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-primary btn-custom"> Entrar </button>
+                    </div>
+                    <div class="float-left mt-2">
+                        <span>Não tem uma conta? Cadastre-se clicando <a asp-controller="Account" asp-action="Register">aqui</a></span>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

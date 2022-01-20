@@ -1,6 +1,10 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 .main-nav-custom li a {
     color: white !important;
 }
@@ -25,6 +29,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    height: 100vh;
+    margin: 0;
+    display:flex; 
+    flex-direction:column; 
 }
 
 .order-category li:hover {
@@ -58,26 +66,10 @@ table tr {
     font-weight: 500;
 }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight:600;
-}
-
-h2 {
-    font-family: 'Poppins', sans-serif;
-}
-
-h3 {
-    font-family: 'Poppins', sans-serif;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-}
-
 .hr-white {
     border-color: white;
     background-color: white;
+    color: white;
 }
 
 .btn-custom {
@@ -88,7 +80,7 @@ form label {
     color: black;
 }
 
-.ney {
+.border-background {
     background-color: white;
     padding: 30px;
     border-radius: 20px;

@@ -4,13 +4,13 @@
     ViewData["Title"] = "Categorias";
 }
 
-<h1> @ViewData["Title"] </h1>
+<h1 class="text-white"> @ViewData["Title"] </h1>
 
 <p class="float-right">
-    <a asp-action="Create" class="btn btn-dark"> Adicionar categoria </a>
+    <a asp-action="Create" class="btn btn-primary"> Adicionar categoria </a>
 </p>
-<table class="table table-striped table-hover">
-    <thead class="thead-dark">
+<table class="table table-borderless table-striped table-light">
+    <thead class="table-color-custom">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CategoriaNome)

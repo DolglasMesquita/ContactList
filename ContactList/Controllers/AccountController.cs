@@ -61,9 +61,13 @@ namespace ContactList.Controllers
             {
                 var usuario = new IdentityUser() { UserName = registroVM.UserName };
                 var resultado = await _userManager.CreateAsync(usuario, registroVM.Password);
-                TempData["alerta"] = "Cadastro realizado com sucesso";
 
-                if (resultado.Succeeded) return RedirectToAction("Index", "Home");
+
+                if (resultado.Succeeded)
+                {
+                    TempData["alerta"] = "Cadastro realizado com sucesso";
+                    return RedirectToAction("Login", "Account");
+                }
                 else ModelState.AddModelError("", "Usuário já cadastrado");
             }
 
