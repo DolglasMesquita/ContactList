@@ -1,6 +1,6 @@
 # Contact List
 ### Desenvolvido para praticar os conhecimentos em .NET Core MVC com C#
-.NET Core MVC | C# | Entity Framework Core | Identity | SQLServer | Razor | HTML | Bootstrap
+.NET Core MVC | C# | Entity Framework Core | Identity | MySql | HTML | Bootstrap | Docker
 
 * Contact List é um sistema simples de gerenciamento de contatos.
 * Possui as funcionalidades de adicionar, editar e remover categorias e contatos.
