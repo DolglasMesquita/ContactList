@@ -6,7 +6,7 @@
 * Possui as funcionalidades de adicionar, editar e remover categorias e contatos.
 * Autenticação com Identity, vários usuários podem se cadastrar. Cada um com sua lista de contatos.
 * É possivel listar todos os contatos e listar os contatos filtrando por categoria.
-* O SGBD usado foi o SQLServer e conta com 2 tabelas: Contatos e Categorias, onde possui orelacionamento 1 - n.
+* O SGBD usado foi o MySql e conta com 2 tabelas: Contatos e Categorias, onde possui orelacionamento 1 - n.
 
 <img src="ContactList/wwwroot/images/print-LoginRegister.png">
 <img src="ContactList/wwwroot/images/print-Contatos.png">
