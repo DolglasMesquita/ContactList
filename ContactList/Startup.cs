@@ -29,7 +29,7 @@ namespace ContactList
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<ContactListContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnections")));
+            services.AddDbContext<ContactListContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnections"), new MySqlServerVersion(new Version(10,4,21))));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ContactListContext>().AddDefaultTokenProviders();
 
